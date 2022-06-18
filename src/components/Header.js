@@ -8,18 +8,22 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 function Header() {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container fluid>
-          <Navbar.Brand href="/">
-            <img
-              src="r/home/kali/VsCodeProjects/refteca/resources/icons/logo/refteca_logo.png"
-              alt="RefTeca Logo"
-            />
-          </Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand>
+              <img
+                src="r/home/kali/VsCodeProjects/refteca/resources/icons/logo/refteca_logo.png"
+                alt="RefTeca Logo"
+              />
+            </Navbar.Brand>
+          </LinkContainer>
+
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -27,10 +31,16 @@ function Header() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/login">
-                Login <i className="fas fa-user"></i>
-              </Nav.Link>
+              <LinkContainer to="/home">
+                <Nav.Link>Home</Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="/login">
+                <Nav.Link>
+                  Login <i className="fas fa-user"></i>
+                </Nav.Link>
+              </LinkContainer>
+
               <NavDropdown title="Store" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
@@ -41,9 +51,12 @@ function Header() {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/cart" disabled>
-                Cart <i className="fas fa-shopping-cart"></i>
-              </Nav.Link>
+
+              <LinkContainer to="/cart">
+                <Nav.Link disabled>
+                  Cart <i className="fas fa-shopping-cart"></i>
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
             <Form className="d-flex">
               <FormControl
